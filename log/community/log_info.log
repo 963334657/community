@@ -1,0 +1,7 @@
+2020-12-22 18:56:23,096 INFO [main] c.c.LoggerTest [StartupInfoLogger.java:55] Starting LoggerTest using Java 1.8.0_202 on A with PID 16552 (started by 敖俊 in D:\Maven\community)
+2020-12-22 18:56:23,100 INFO [main] c.c.LoggerTest [SpringApplication.java:660] No active profile set, falling back to default profiles: default
+2020-12-22 18:56:26,145 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-22 18:56:26,355 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-12-22 18:56:27,006 INFO [main] c.c.LoggerTest [StartupInfoLogger.java:61] Started LoggerTest in 4.87 seconds (JVM running for 6.35)
+2020-12-22 18:56:27,318 INFO [main] c.c.LoggerTest [LoggerTest.java:23] info log
+2020-12-22 18:56:27,335 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
