@@ -4,11 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.community.dao.DiscussPostMapper">
     <sql id="insertFields">
-        id,user_id,title,content,type,status,create_time,comment,score
-    </sql>
-    <sql id="selectFields">
         user_id,title,content,type,status,create_time,comment_count,score
     </sql>
+    <sql id="selectFields">
+        id,user_id,title,content,type,status,create_time,comment_count,score
+    </sql>
+
+    <update id="updateCommentCount">
+        UPDATE discuss_post set comment_count=#{commentCount} where id=#{id}
+    </update>
+
+
     <select id="selectDiscussPosts" resultType="DiscussPost">
         select <include refid="selectFields"></include>
         from discuss_post
@@ -29,5 +35,32 @@
             and user_id=#{userId}
         </if>
     </select>
+    
+    <insert id="insertDiscussPost" parameterType="DiscussPost" >
+        insert into discuss_post (<include refid="insertFields"></include>)
+        VALUES (#{userId},#{title},#{content},#{type},#{status},#{createTime},#{commentCount},#{score})
+    </insert>
+
+    <select id="selectDiscussPostById" resultType="DiscussPost">
+        select <include refid="selectFields"></include>
+        from discuss_post
+        where id=#{id}
+    </select>
 
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

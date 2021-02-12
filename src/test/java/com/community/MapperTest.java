@@ -1,8 +1,12 @@
 package com.community;
 
 import com.community.dao.DiscussPostMapper;
+import com.community.dao.LoginTicketMapper;
+import com.community.dao.MessageMapper;
 import com.community.dao.UserMapper;
 import com.community.entity.DiscussPost;
+import com.community.entity.LoginTicket;
+import com.community.entity.Message;
 import com.community.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +27,37 @@ public class MapperTest {
     private UserMapper userMapper;
     @Autowired
     private DiscussPostMapper discussPostMapper;
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
+    @Autowired
+    private MessageMapper messageMapper;
+
+    @Test
+    public void testSelectConversation(){
+        List<Message> list =messageMapper.selectConversation(111,0,20);
+        for(Message msg:list){
+            System.out.println(msg);
+        }
+    }
+    @Test
+    public void testSelectConversationCount(){
+        System.out.println(messageMapper.selectConversationCount(111));
+    }
+    @Test
+    public void testSelectLetters(){
+        List<Message> list =messageMapper.selectLetters("111_112",0,20);
+        for(Message msg:list){
+            System.out.println(msg);
+        }
+    }
+    @Test
+    public void testSelectLetterCount(){
+        System.out.println(messageMapper.selectLetterCount("111_112"));
+    }
+    @Test
+    public void testSelectLetterUnreadCount(){
+        System.out.println(messageMapper.selectLetterUnreadCount(131,"111_131"));
+    }
 
     @Test
     public void testSelectUser() {
@@ -72,5 +107,25 @@ public class MapperTest {
         System.out.println(rows);
     }
 
+    @Test
+    public void testInsertLoginTicket(){
+        LoginTicket loginTicket=new LoginTicket();
+        loginTicket.setUserId(101);
+        loginTicket.setTicket("ABC");
+        loginTicket.setStatus(0);
+        loginTicket.setExpired(new Date(System.currentTimeMillis()+1000*60*10));
+        int rows=loginTicketMapper.insertLoginTicket(loginTicket);
+        System.out.println(rows);
+    }
 
+    @Test
+    public void testSelectByTicket(){
+        LoginTicket loginTicket=loginTicketMapper.selectByTicket("ABC");
+        System.out.println(loginTicket.toString());
+    }
+    @Test
+    public void testUpdateStatus(){
+        int rows=loginTicketMapper.updateStatus(1,"ABC");
+        System.out.println(rows);
+    }
 }

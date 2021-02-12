@@ -1,1 +1,2 @@
-2020-12-22 18:56:27,319 WARN [main] c.c.LoggerTest [LoggerTest.java:24] warn log
+2021-02-13 00:54:53,811 WARN [http-nio-8080-exec-8] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [AbstractHandlerExceptionResolver.java:207] Resolved [java.lang.NumberFormatException: For input string: "ef"]
+2021-02-13 00:56:25,444 WARN [http-nio-8080-exec-2] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [AbstractHandlerExceptionResolver.java:207] Resolved [java.lang.NumberFormatException: For input string: "abd"]
