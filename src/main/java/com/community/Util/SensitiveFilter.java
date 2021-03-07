@@ -35,7 +35,6 @@ public class SensitiveFilter {
         }catch (IOException e){
             logger.error("加载敏感词文件失败！"+e.getMessage());
         }
-
     }
     //将一个敏感词添加到前缀树
     private void addKeyWord(String keyWord){
